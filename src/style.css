@@ -4,8 +4,7 @@
     margin: 0;
 }
 
-body {
-  width: 320px;
+body {   
   min-height: 100vh;
   display: flex;
   flex-direction: column;  
@@ -44,9 +43,9 @@ footer {
 
 nav {
   position: absolute;
-  width: 320px;
+  width: 390px;
   height: calc(100vh - 120px);
-  right: -320px;
+  right: -390px;
   top: 120px;
   background-color: cornflowerblue;
   transition: right 1s;
