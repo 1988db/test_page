@@ -11,18 +11,28 @@ document.addEventListener('DOMContentLoaded', ()=> {
     burger.addEventListener('click', showHideMenu);
 
     function createMobileMenu () {
+        clonedMenu.querySelectorAll('a').forEach(element => {
+            element.addEventListener('click', deleteMobileMenu);
+            element.addEventListener('click', resetLogo);
+        });
         nav.classList.add('mobile-menu');
         nav.appendChild(clonedMenu);
         shutter.classList.add('shutter');
         shutter.addEventListener('click', showHideMenu);        
         logoWrapper.appendChild(nav);
-        body.appendChild(shutter);
+        body.style.width = '100vw';
+        body.style.height = '100vh';
+        body.style.overflow = 'hidden';
+        body.appendChild(shutter);        
         mobileMenu = nav;
     }
 
     function deleteMobileMenu () {
         logoWrapper.removeChild(nav);
-        body.removeChild(shutter);        
+        body.removeChild(shutter);
+        body.style.width = 'auto';
+        body.style.height = 'auto';
+        body.style.overflow = 'auto';       
     }
 
     function slideIn () {
@@ -32,6 +42,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     function slideOut () {
         mobileMenu.classList.toggle('visible');
+    }
+
+    function resetLogo () {
+        logoWrapper.classList.toggle('visible');
+        burger.classList.toggle('visible');
     }
 
     function showHideMenu () {
