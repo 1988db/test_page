@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     function createMobileMenu () {
         clonedMenu.querySelectorAll('a').forEach(element => {
-            element.addEventListener('click', deleteMobileMenu);
             element.addEventListener('click', resetLogo);
+            element.addEventListener('click', deleteMobileMenu);
         });
         nav.classList.add('mobile-menu');
         nav.appendChild(clonedMenu);
@@ -27,12 +27,13 @@ document.addEventListener('DOMContentLoaded', ()=> {
         mobileMenu = nav;
     }
 
-    function deleteMobileMenu () {
+    function deleteMobileMenu () {        
         logoWrapper.removeChild(nav);
         body.removeChild(shutter);
         body.style.width = 'auto';
         body.style.height = 'auto';
-        body.style.overflow = 'auto';       
+        body.style.overflow = 'auto';   
+        isMenuOpen = false;    
     }
 
     function slideIn () {
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     function resetLogo () {
         logoWrapper.classList.toggle('visible');
         burger.classList.toggle('visible');
+        mobileMenu.classList.toggle('visible');
     }
 
     function showHideMenu () {
@@ -65,8 +67,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
             },10)            
             setTimeout(()=> {                
                 deleteMobileMenu();
-            }, 511)
-            isMenuOpen = false;
+            }, 511)            
         }
     }
     
